@@ -1,0 +1,3 @@
+[{"id":1, "body":"this is 1st comment", "email":"pqr@gmail.com", "name":"this is 1st comment", "post_id":6},
+ {"id":2, "body":"this is 2nd comment", "email":"pqr@gmail.com", "name":"this is 2nd comment", "post_id":6},
+ {"id":3, "body":"3rd updated!", "email":"harshal@gmail.com", "name":"this is the 3rd comment", "post_id":6}]
