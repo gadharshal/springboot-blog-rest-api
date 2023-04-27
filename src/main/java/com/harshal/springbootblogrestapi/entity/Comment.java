@@ -52,13 +52,13 @@ public class Comment {
         return this;
     }
 
-    public Post getPost() {
+ /*   public Post getPost() {
         return post;
     }
 
     public void setPost(Post post) {
         this.post = post;
-    }
+    }*/
 
     /*@Override
     public boolean equals(Object o) {

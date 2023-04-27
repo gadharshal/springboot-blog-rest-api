@@ -50,14 +50,14 @@ public class Post {
         return comments;
     }*/
 
-    @JsonManagedReference
+ /*   @JsonManagedReference
     public Set<Comment> getComments() {
         return comments;
     }
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
-    }
+    }*/
 
     public PostDTO toDTO() {
         return new ModelMapper().map(this, PostDTO.class);
