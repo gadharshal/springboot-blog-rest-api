@@ -32,9 +32,13 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<List<PostDTO>> getAllPosts() {
-        return new ResponseEntity<>(postService.getAllPost(), HttpStatus.OK);
+        return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
     }
 
+  /* @GetMapping
+   public ResponseEntity<List<Post>> getAllPosts() {
+       return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
+   }*/
 
 
     @GetMapping("/page")

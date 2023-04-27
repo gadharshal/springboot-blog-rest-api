@@ -12,10 +12,10 @@ public interface PostService {
 
     List<PostDTO> createPost(List<PostDTO> postDTO);
 
-    List<PostDTO> getAllPost();
-
 
     public List<PostDTO> getAllPosts();
+
+    /*public List<Post> getAllPosts();*/
 
 
     public Page getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir);

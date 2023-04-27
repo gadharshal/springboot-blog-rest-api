@@ -5,6 +5,7 @@ import com.harshal.springbootblogrestapi.exception.ResourceNotFoundException;
 import com.harshal.springbootblogrestapi.payload.PostDTO;
 import com.harshal.springbootblogrestapi.repository.PostRepository;
 import com.harshal.springbootblogrestapi.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private final PostRepository postRepository;
+    private PostRepository postRepository;
 
 
     public PostServiceImpl(PostRepository postRepository) {
@@ -35,8 +36,14 @@ public class PostServiceImpl implements PostService {
     }
 
     public List<PostDTO> getAllPosts(){
-        return postRepository.findAll().stream().map(p->p.toDTO()).toList();
+        return postRepository.findAll().stream().map(p->p.toDTO()).collect(Collectors.toList());
     }
+
+    /*public List<Post> getAllPosts(){
+        List<Post> posts=postRepository.findAll();
+      //  posts.stream().forEach(System.out::println);
+        return posts;
+    }*/
 
     public Page getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir){
         Sort sort=sortDir.equalsIgnoreCase(Sort.Direction.ASC.toString())?Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
@@ -44,12 +51,12 @@ public class PostServiceImpl implements PostService {
         return postRepository.findAll(pageable);
     }
 
-    @Override
+   /* @Override
     public List<PostDTO> getAllPost() {
         List<Post> posts = postRepository.findAll();
         List<PostDTO> postDTOS = posts.stream().map(p -> p.toDTO()).collect(Collectors.toList());
         return postDTOS;
-    }
+    }*/
 
     @Override
     public PostDTO getPostById(Long id) {
